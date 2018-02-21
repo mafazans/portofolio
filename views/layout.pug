@@ -13,7 +13,21 @@ html
               .intro-text
                 h1 Hello, I`m Arif Mafazan Simohartono
                 p Software Engineer & Statistician
-                a(class='btn btn-default btn-lg page-scroll', href="#") Learn More
+                .login
+                  a(class='btn btn-default btn-lg page-scroll', href="/login") Login
+                .register
+                  a(class='btn btn-default btn-lg page-scroll', href="/register") Register
+
+    block messages
+      if locals.flashes
+        .inner
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
 
     .content
       block content
