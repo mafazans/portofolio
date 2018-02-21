@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/dist/style.css')
+
+  body
+    block header
+      header.header
+        .intro
+          .container
+            .row
+              .intro-text
+                h1 Hello, I`m Arif Mafazan Simohartono
+                p Software Engineer & Statistician
+                a(class='btn btn-default btn-lg page-scroll', href="#") Learn More
+
+    .content
+      block content
