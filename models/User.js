@@ -14,10 +14,10 @@ const userSchema = new Schema({
     trim: true,
     validate: [validator.isEmail, 'Invalid Email Address'],
     required: 'Please Enter an Email Address'
-	}
+	},
 	name: {
 		type: String,
-		required: 'Please Enter Your Name'
+		required: 'Please Enter Your Name',
 		trim: true
 	}
 });

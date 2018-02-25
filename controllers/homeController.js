@@ -1,5 +1,6 @@
 exports.homePage = (req, res) => {
-	res.render('index', {
-		title: `Arif Mafazan Simohartono | Software Engineer`
+	res.render('about', {
+		title: `Arif Mafazan Simohartono | About`,
+		page: `About me`
 	});
 }
