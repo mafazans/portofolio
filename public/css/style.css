@@ -1,0 +1,81 @@
+{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Open Sans;
+    background: white;
+}
+h1.no-padding{
+    margin: 0px;
+}
+/* Header/Blog Title */
+.container {
+    position: relative;
+}
+
+.header {
+    padding: 0px;
+    font-size: 28px;
+    text-align: center;
+    background: white;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    font-size: 18px;
+}
+
+.auth-topnav {
+    margin-right:50px;
+    color: #008db1;
+    text-decoration: none
+}
+
+/* Change color on hover */
+.auth-topnav:hover {
+    color: #0844a4;
+}
+
+.navbar {
+    text-align: center;
+    padding-top:20px;
+}
+
+.main-nav {
+    overflow: hidden;
+    font-size: 18px;
+    margin-right: 3rem;
+    color: #7a7a7a;
+    text-decoration: none;
+}
+.main-nav:hover {
+    color: #0844a4;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+    .topnav a{
+        float: none;
+        width:100%;
+    }
+}

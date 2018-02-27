@@ -1,46 +1,31 @@
-include ../mixins/_navbar
-
 doctype html
 html
   head
-    title= `${title}`
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="description" content="")
-    meta(name="author" content="")
-    // Bootstrap core CSS
-    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet")
-    // Custom fonts for this template
-    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css")
-    link(href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css")
-    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css")
-    // Custom styles for this template
+    title= `${h.siteName}`
     link(href="css/style.css" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
 
   body
     block header
-      header.masthead
-        .text-center
-          h1 mafazans
+      header.header
+        .container
+          h1.no-padding Mafazans
+        .topnav
+          a.auth-topnav(href="#")
+            i.fa.fa-search
+          if user
+            a.auth-topnav(href="/logout") Logout
+            a.auth-topnav(href="/account")
+              img.avatar(src=user.gravatar + 'd=retro')
+          else
+            a.auth-topnav(href="/login") Sign in
+            a.auth-topnav(href="/register") Register
 
     block navbar
-      nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
-        .container
-          a.navbar-brand(href=`/${page}`)= `${page}`
-          button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
-            | Menu
-            i.fa.fa-bars
-          #navbarResponsive.collapse.navbar-collapse
-            ul.navbar-nav.ml-auto
-              li.nav-item
-                a.nav-link(href="#") Home
-              li.nav-item
-                a.nav-link(href="/blog") Blog
-              li.nav-item
-                a.nav-link(href="#") Learning
-              li.nav-item
-                a.nav-link(href="#") Contact
-              li.nav-item
+      nav#mainNav.fixed-top
+        .navbar
+          -for(menu of h.menu)
+            a.main-nav(href=menu.slug)= `${menu.title}`
 
     block messages
       if locals.flashes
