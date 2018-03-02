@@ -9,9 +9,29 @@ body {
 h1.no-padding{
     margin: 0px;
 }
+
+h1.no-padding a {
+    text-decoration: none;
+    color: black;
+}
+.inner {
+    text-align: center;
+}
 /* Header/Blog Title */
 .container {
-    position: relative;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-areas: " sidebar-letf content sidebar-right"
+}
+
+.content-container {
+    grid-area: content;
+}
+
+.posts {
+    text-align: center;
+    border: solid;
 }
 
 .header {
@@ -43,7 +63,7 @@ h1.no-padding{
 
 .navbar {
     text-align: center;
-    padding-top:20px;
+    padding:20px 0px;
 }
 
 .main-nav {

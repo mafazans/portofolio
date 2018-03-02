@@ -1,0 +1,8 @@
+mixin postForm(post = {})
+	form.form(action=`/blog/post/${post._id || ''}` method="POST" class="card")
+		label(for="title") Title
+		input(type="text" name="title" value=post.title)
+		label(for="content") Content
+		textarea(name="content")= post.content
+		- const tags = post.tags || []
+		input.button(type="submit" value="Submit")

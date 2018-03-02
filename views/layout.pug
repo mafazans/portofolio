@@ -2,21 +2,22 @@ doctype html
 html
   head
     title= `${h.siteName}`
-    link(href="css/style.css" rel="stylesheet")
+    link(href="/css/style.css" rel="stylesheet")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
 
   body
     block header
       header.header
-        .container
-          h1.no-padding Mafazans
+        h1.no-padding
+          a(href="/") Mafazans
         .topnav
           a.auth-topnav(href="#")
             i.fa.fa-search
           if user
             a.auth-topnav(href="/logout") Logout
             a.auth-topnav(href="/account")
-              img.avatar(src=user.gravatar + 'd=retro')
+              i.fa.fa-user-circle.user-icon
+
           else
             a.auth-topnav(href="/login") Sign in
             a.auth-topnav(href="/register") Register
@@ -46,6 +47,5 @@ html
 
     .footer
       block footer
-        .container.text-center
           .fnav
             p Copyright &copy; 2018 Arif Mafazan Simohartono.

@@ -3,8 +3,6 @@ extends ../layout
 include ../../mixins/_postForm
 
 block content
-	h2 Post
-	//- +postForm()
-
-
-
+	.inner
+		h2= title
+		+postForm(post)
