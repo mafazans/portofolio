@@ -13,7 +13,8 @@ const postSchema = new mongoose.Schema({
 		trim: true
 	},
 	tags: [String],
-	slug: String
+	slug: String,
+	photo: String
 });
 
 postSchema.pre('save', function(next) {

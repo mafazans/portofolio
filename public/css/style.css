@@ -99,3 +99,26 @@ h1.no-padding a {
         width:100%;
     }
 }
+
+.main-content {
+  padding: 5% 10%;
+  flex: 1 1 80%;
+  min-height: 100vh;
+}
+
+.home {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.home-content {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-item: center;
+}
+
+.post-img{
+    width: 480px;
+    height: 240px;
+}
