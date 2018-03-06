@@ -16,12 +16,12 @@ const multerOptions = {
 	}
 };
 
-exports.blogIndex = (req, res) => {
-	res.render('blog/index', {
-		title: `Arif Mafazan Simohartono | Blog`,
-		page: `Blog`
-	});
-};
+// exports.blogIndex = (req, res) => {
+// 	res.render('blog/index', {
+// 		title: `Arif Mafazan Simohartono | Blog`,
+// 		page: `Blog`
+// 	});
+// };
 
 exports.addPost = (req, res) => {
 	res.render('blog/editPost');
@@ -46,13 +46,13 @@ exports.createPost = async (req, res) => {
 	const post = new Post(req.body);
 	await post.save();
 	req.flash('success', `Successfully Create Post About ${post.title}`);
-	res.redirect(`blog/${post.slug}`);
+	res.redirect(`/blog`);
 };
 
 exports.getPosts = async (req, res) => {
 	const posts = await Post.find();
 	// console.log(posts);
-	res.render('blog/posts', { title: `Mafazans Blog Posts`, posts });
+	res.render('blog/index', { title: `Mafazans Blog Posts`, posts });
 };
 
 exports.editPost = async (req, res) => {
@@ -65,8 +65,8 @@ exports.updatePost = async (req, res) => {
 		new: true,
 		runValidators: true
 	}).exec();
-	req.flash('success', `Succesfully updated <strong>${post.title}</strong>. <a href="/post/${post.slug}">View Store</a>`);
-	res.redirect('blog/${post._id}/edit');
+	req.flash('success', `Succesfully updated <strong>${post.title}</strong>. <a href="/blog/${post.slug}">View Store</a>`);
+	res.redirect(`/blog/${post._id}/edit`);
 };
 
 exports.getPostBySlug = async (req, res, next) => {

@@ -1,10 +1,12 @@
 extends ../layout
 
-include ../../mixins/_postForm
+include ../../mixins/_postCard
 
 block content
-	h2 Post
-	//- +postForm()
-
-
-
+	.inner
+		h2= title
+		.container
+			.content-container
+				each post in posts
+						.posts
+							+postCard(post)
