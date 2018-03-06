@@ -12,5 +12,5 @@ exports.menu = [
 { slug: '/', title: 'Home', icon: 'map'},
 { slug: '/blog', title: 'Blog', icon: 'map'},
 { slug: '/learn', title: 'Learn', icon: 'map'},
-{ slug: '/about', title: 'About Me', icon: 'map'}
+{ slug: '/portofolio', title: 'My Portofolio', icon: 'map'}
 ];

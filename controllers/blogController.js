@@ -52,7 +52,7 @@ exports.createPost = async (req, res) => {
 exports.getPosts = async (req, res) => {
 	const posts = await Post.find();
 	// console.log(posts);
-	res.render('blog/index', { title: `Mafazans Blog Posts`, posts });
+	res.render('blog/index', { posts });
 };
 
 exports.editPost = async (req, res) => {
