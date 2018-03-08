@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+	h1 #{post.title}
+	.inner
+		img(src=`/uploads/${post.photo}`)
+	p #{post.content}

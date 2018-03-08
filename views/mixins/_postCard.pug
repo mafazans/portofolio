@@ -1,0 +1,13 @@
+mixin postCard(post = {})
+	.post
+		.post__hero
+			img.post-img(src=`uploads/${post.photo}` alt="images")
+			h2.title
+				a(href=`/blog/${post.slug}`) #{post.title}
+		.post__details
+			p= post.content.split(' ').slice(0, 25).join(' ')
+		.post__actions
+			.post__action.post__action--edit
+				if(user)
+					a(href=`/blog/${post._id}/edit`)
+						button edit

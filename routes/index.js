@@ -3,6 +3,7 @@ const router = express.Router();
 const homeController = require('../controllers/homeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const { catchErrors } = require('../handlers/errorHandlers');
 
 
 router.get('/', homeController.homePage);
@@ -19,6 +20,7 @@ router.post('/register',
 );
 
 router.get('/logout', authController.logout);
-router.get('/account', userController.account);
+router.get('/account', authController.isLoggedIn, userController.account);
+router.post('/account', catchErrors(userController.updateAccount));
 
 module.exports = router;
