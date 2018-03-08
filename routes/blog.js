@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const blogController = require('../controllers/blogController')
+const authController = require('../controllers/authController')
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', catchErrors(blogController.getPosts));
-router.get('/post', blogController.addPost);
+router.get('/post', authController.isLoggedIn, blogController.addPost);
 
 router.post('/post',
 	blogController.upload,

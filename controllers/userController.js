@@ -15,7 +15,7 @@ exports.validateRegister = (req, res, next) => {
 	req.checkBody('name', 'You must enter a name!').notEmpty();
 	req.checkBody('email', 'That Email is not valid!').isEmail();
 	req.sanitizeBody('email').normalizeEmail({
-		remove_dots: false,
+		gmail_remove_dots: false,
 		remove_extension: false,
 		gmail_remove_subaddress: false
 	});
@@ -37,4 +37,8 @@ exports.register = async (req, res, next) => {
 	const registerWithPromise = promisify(User.register, User);
 	await registerWithPromise(user, req.body.password);
 	next();
+};
+
+exports.account = (req, res) => {
+	res.render('account', { title: 'Edit Your Account' });
 };

@@ -63,6 +63,11 @@ h2.title a {
     color: #0844a4;
 }
 
+.avatar {
+  min-width: 20px;
+  height: 20px;
+}
+
 .navbar {
     text-align: center;
     padding:20px 0px;
