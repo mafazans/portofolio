@@ -1,9 +1,0 @@
-extends layout
-
-include ./mixins/_postCard
-block content
-	.inner
-		h2= title
-		.posts
-			each post in posts
-				+postCard(post)

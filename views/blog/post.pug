@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+	pre= h.dump(post)
 	h1 #{post.title}
 	.inner
 		img(src=`/uploads/${post.photo}`)

@@ -43,6 +43,7 @@ exports.resize = async(req, res, next) => {
 }
 
 exports.createPost = async (req, res) => {
+	req.body.author = req.user._id;
 	const post = new Post(req.body);
 	await post.save();
 	req.flash('success', `Successfully Create Post About ${post.title}`);
@@ -55,8 +56,17 @@ exports.getPosts = async (req, res) => {
 	res.render('blog/index', { posts });
 };
 
+const confirmAuthor = (post, user) => {
+	if(!post.author.equals(user._id)){
+		throw Error('You must be the author to edit the post!')
+	}
+}
+
 exports.editPost = async (req, res) => {
 	const post = await Post.findOne({ _id: req.params.id });
+
+	confirmAuthor(post, req.user);
+
 	res.render('blog/editPost', { title: `Edit ${post.title}`, post });
 };
 
@@ -70,7 +80,7 @@ exports.updatePost = async (req, res) => {
 };
 
 exports.getPostBySlug = async (req, res, next) => {
-	const post = await Post.findOne({ slug: req.params.slug });
+	const post = await Post.findOne({ slug: req.params.slug }).populate('author');
 	if(!post) return next();
 	res.render('blog/post', { post, title: post.title})
 };

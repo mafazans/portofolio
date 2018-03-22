@@ -8,6 +8,6 @@ mixin postCard(post = {})
 			p= post.content.split(' ').slice(0, 25).join(' ')
 		.post__actions
 			.post__action.post__action--edit
-				if(user)
+				if(user && post.author.equals(user._id))
 					a(href=`/blog/${post._id}/edit`)
 						button edit

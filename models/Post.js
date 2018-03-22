@@ -14,7 +14,12 @@ const postSchema = new mongoose.Schema({
 	},
 	tags: [String],
 	slug: String,
-	photo: String
+	photo: String,
+	author: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User',
+		required: 'You must have an author!'
+	}
 });
 
 postSchema.pre('save', async function(next) {
