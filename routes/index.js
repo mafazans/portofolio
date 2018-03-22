@@ -3,6 +3,7 @@ const router = express.Router();
 const homeController = require('../controllers/homeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const blogController = require('../controllers/blogController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 
@@ -28,5 +29,8 @@ router.post('/account/reset/:token',
 	authController.confirmedPassword,
 	catchErrors(authController.update)
 );
+
+
+router.get('/api/search', catchErrors(blogController.searchPost));
 
 module.exports = router;

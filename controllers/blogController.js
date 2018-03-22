@@ -84,3 +84,19 @@ exports.getPostBySlug = async (req, res, next) => {
 	if(!post) return next();
 	res.render('blog/post', { post, title: post.title})
 };
+
+
+exports.searchPost = async (req, res) => {
+	const posts = await Post
+	.find({
+		$text: {
+			$search: req.query.q
+		}
+	}, {
+		score: { $meta: 'textScore' }
+	})
+	.sort({
+		score: { $meta: 'textScore' }
+	});
+	res.json(posts);
+}
