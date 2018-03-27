@@ -5,5 +5,12 @@ include mixins/_forgotForm
 
 block content
 	.inner
+		a.auth(href="#")
+			i.fa.fa-facebook
+		a.auth(href="#")
+			i.fa.fa-twitter
+		a.auth(href="#")
+			i.fa.fa-google
+	.inner
 		+loginForm()
 		+forgotForm()
