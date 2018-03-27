@@ -17,7 +17,7 @@ router.get('/auth/facebook', authController.fbLogin);
 
 router.get('/auth/facebook/callback', authController.fbLoginCallback);
 
-// 1. Validate the registration data
+// 1. Validate the registration data.
 router.post('/register',
 	userController.validateRegister,
 	userController.register,
