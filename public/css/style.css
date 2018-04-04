@@ -31,6 +31,10 @@ h2.title a {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.home-container {
+    border: black;
+}
+
 .posts {
     text-align: center;
     border: solid;
@@ -110,19 +114,44 @@ h2.title a {
 .main-content {
   padding: 5% 10%;
   flex: 1 1 80%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .home {
     display: grid;
     grid-gap: 20px;
+    grid-template-columns: 1fr 1fr auto;
+    background-color: #fff;
+    color: #444;
 }
 
+
 .home-content {
-    background-color: grey;
-    display: flex;
     justify-content: center;
-    align-item: center;
+    border: 1px solid;
+}
+
+.box-a {
+    grid-column: 1 / span 2;
+}
+
+.box-b img {
+    width: 200px;
+    height: auto;
+}
+
+.box-b {
+    grid-column: 3 ;
+    grid-row: 1 / span 2;
+}
+
+.box-c {
+    grid-column: 1 ;
+    grid-row: 2 ;
+}
+.box-d {
+    grid-column: 2 ;
+    grid-row: 2 ;
 }
 
 .post-img{

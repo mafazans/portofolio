@@ -17,7 +17,7 @@ exports.fbLogin = passport.authenticate('facebook', {
 });
 
 exports.fbLoginCallback = passport.authenticate('facebook', {
-	successRedirect : '/account',
+	successRedirect : '/',
 	failureRedirect : '/login'
 });
 
