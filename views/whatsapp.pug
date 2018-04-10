@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    form.form(action="/whatsapp" method = "POST")
+        h2 WhatsApp Everyone
+        label(for="nomorHp") Inputkan nomor HP yang ingin anda chat!
+        input(type="text" name="nomorHp" value="085899992418")
+        input.button(type="submit" value="chat!")

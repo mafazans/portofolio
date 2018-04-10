@@ -9,6 +9,10 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', homeController.homePage);
 
+router.get('/whatsapp', homeController.whatsapp);
+router.post('/whatsapp', homeController.whatsappChat);
+
+
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
 router.get('/register', userController.registerForm);
