@@ -12,7 +12,7 @@ exports.login = passport.authenticate('local', {
 	successFlash: 'You are now logged in!'
 });
 
-exports.fbLogin = passport.authenticate('facebook', { 
+exports.fbLogin = passport.authenticate('facebook', {
 	scope : ['public_profile', 'email']
 });
 
