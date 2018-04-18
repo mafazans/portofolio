@@ -14,6 +14,7 @@ const apiRoutes = require('./routes/api')
 const blogRoutes = require('./routes/blog')
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+const cors = require('cors');
 require('./handlers/passport');
 
 
